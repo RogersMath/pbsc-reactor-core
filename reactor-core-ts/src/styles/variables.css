@@ -1,0 +1,53 @@
+:root {
+  /* Fonts */
+  --font-orbitron: 'Orbitron', system-ui, sans-serif;
+  --font-mono: monospace;
+
+  /* Slate (Backgrounds/Neutrals) */
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+
+  /* Cyan (Primary UI) */
+  --cyan-100: #cffafe;
+  --cyan-200: #a5f3fc;
+  --cyan-300: #67e8f9;
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --cyan-900: #164e63;
+
+  /* Blue (Accents) */
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-900: #1e3a8a;
+  --blue-950: #172554;
+
+  /* Green (Matter) */
+  --green-300: #86efac;
+  --green-400: #4ade80;
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --green-900: #14532d;
+  --green-950: #052e16;
+
+  /* Red (Antimatter) */
+  --red-200: #fecaca;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red-500: #ef4444;
+  --red-900: #7f1d1d;
+  --red-950: #450a0a;
+
+  /* Special */
+  --yellow-300: #fde047;
+  --yellow-400: #facc15;
+  --purple-300: #d8b4fe;
+  
+  /* Layout Z-Indices */
+  --z-particle: 40;
+  --z-footer: 50;
+  --z-streaming: 50;
+  --z-overlay: 50;
+  --z-settings: 100;
+  --z-modal: 200;
+}

@@ -8,6 +8,7 @@ export const generateDeck = (level: number): Card[] => {
     type,
     value: val,
     symbol: '⚛',
+    // We keep the name normal for accessibility, but handle the break in UI
     name: `${val} ${type === 'matter' ? 'Matter' : 'Antimatter'}`,
     ariaLabel: val === 1 ? `1 unit of ${type}` : `${val} units of ${type}`
   });
@@ -78,7 +79,13 @@ export const calculateMinMoves = (target: number, availableCards: Card[]): numbe
 };
 
 export const getSymbolicEquation = (leftConstant: number, rightValue: number): string => {
-  if (leftConstant === 0) return `E = ${rightValue}`;
-  const sign = leftConstant > 0 ? '+' : '';
-  return `E ${sign} (${leftConstant}) = ${rightValue}`;
+  // If solved
+  if (leftConstant === 0) return `X = ${rightValue}`;
+  
+  // Strictly enforce "X + (number) = result" format
+  // If leftConstant is positive: X + 5 = 10
+  // If leftConstant is negative: X + (-5) = 10
+  const term = leftConstant > 0 ? `${leftConstant}` : `(${leftConstant})`;
+  
+  return `X + ${term} = ${rightValue}`;
 };

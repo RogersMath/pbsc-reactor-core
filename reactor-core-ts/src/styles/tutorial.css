@@ -1,0 +1,105 @@
+/* Dark backdrop that covers everything */
+.tutorial-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 200; /* High z-index */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto; /* Catch clicks */
+}
+
+/* The element being highlighted gets this class added dynamically */
+.tutorial-highlight {
+  position: relative;
+  z-index: 210 !important; /* Above the backdrop */
+  transition: all 0.3s ease;
+  pointer-events: none; /* Don't allow clicking the game yet */
+}
+
+/* 
+   FIX: Force the Dashboard Box to be fully opaque when highlighted.
+   Otherwise, the tutorial backdrop shows through it, making it look grey.
+*/
+.dashboard-box.tutorial-highlight {
+  background-color: rgba(15, 23, 42, 1) !important;
+  border-color: var(--cyan-400);
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.25);
+}
+
+/* Card bank specific highlight */
+.card-bank.tutorial-highlight {
+  background-color: rgba(15, 23, 42, 1) !important;
+  box-shadow: 0 0 50px rgba(34, 211, 238, 0.2);
+}
+
+/* Unit Grid specific highlight (for step 2) */
+.unit-grid-wrapper.tutorial-highlight {
+  background-color: rgba(15, 23, 42, 0.9);
+  border-radius: 0.5rem;
+  padding: 0.5rem; /* Add padding so the background doesn't hug the atoms too tight */
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.3); /* Yellow glow for "E" context */
+}
+
+/* Tutorial Card Styles */
+.tutorial-card {
+  background: rgba(15, 23, 42, 0.98);
+  border: 2px solid var(--cyan-400);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  max-width: 24rem;
+  color: white;
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.3);
+  z-index: 220;
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Positioning adjustments */
+.tutorial-card.centered { margin-top: 5rem; margin-left: 2rem; }
+.tutorial-card.near-equation { margin-top: 10rem; }
+.tutorial-card.near-deck { margin-bottom: 15rem; }
+
+.tutorial-title {
+  color: var(--cyan-300);
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+
+.tutorial-instruction {
+  display: flex; align-items: center; gap: 0.5rem;
+  color: var(--yellow-400);
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.btn-tutorial-next, .btn-tutorial-start {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--cyan-600);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.btn-tutorial-next:hover { background: var(--cyan-500); }
+.btn-tutorial-start { background: var(--green-600); }
+.btn-tutorial-start:hover { background: var(--green-500); }
+
+.btn-tutorial-skip {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  background: none; border: none;
+  color: var(--cyan-400);
+  cursor: pointer;
+  opacity: 0.7;
+}
+.btn-tutorial-skip:hover { opacity: 1; }
